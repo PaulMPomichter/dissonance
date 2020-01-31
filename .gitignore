@@ -21,6 +21,7 @@
 /storage/*
 !/storage/.keep
 
+/app/assets/javascripts/bundle.js
 /node_modules
 /yarn-error.log
 
