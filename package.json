@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/PaulMPomichter/dissonance/issues"
   },
-  "homepage": "https://github.com/PaulMPomichter/dissonance#readme"
+  "homepage": "https://github.com/PaulMPomichter/dissonance#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  }
 }
