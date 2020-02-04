@@ -8,7 +8,6 @@ import { createChannelMessage, updateMessage, deleteMessage } from './actions/me
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  console.log("entry.jsx was here")
   let preloadedState = {};
   if (window.currentUser) {
     const { currentUser } = window;
