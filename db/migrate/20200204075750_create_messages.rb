@@ -1,6 +1,6 @@
 class CreateMessages < ActiveRecord::Migration[5.2]
   def change
-    create_table :posts do |t|
+    create_table :messages do |t|
       t.integer :author_id, null: false
       t.text :body, null: false
       t.references :thread, polymorphic: true, null: false

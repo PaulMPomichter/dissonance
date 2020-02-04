@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 2020_02_04_075753) do
     t.index ["server_id"], name: "index_channels_on_server_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.integer "author_id", null: false
     t.text "body", null: false
     t.string "thread_type", null: false
     t.bigint "thread_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_posts_on_author_id"
-    t.index ["created_at"], name: "index_posts_on_created_at"
-    t.index ["thread_type", "thread_id"], name: "index_posts_on_thread_type_and_thread_id"
+    t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["created_at"], name: "index_messages_on_created_at"
+    t.index ["thread_type", "thread_id"], name: "index_messages_on_thread_type_and_thread_id"
   end
 
   create_table "server_memberships", force: :cascade do |t|
