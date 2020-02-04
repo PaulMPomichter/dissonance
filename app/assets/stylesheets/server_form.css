@@ -1,0 +1,253 @@
+.server-form-container {
+  width: 540px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.server-form {
+  width: 100%;
+  padding: 28px 40px 0px;
+  box-sizing: border-box;
+  background-color: white;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  user-select: none;
+}
+
+.server-form h1 {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #7289da;
+  font-weight: 1000;
+  text-align: center;
+}
+
+.server-form-description {
+  font-size: 18px;
+  text-align: center;
+  color: #99aab5;
+  padding: 10px 0px;
+}
+
+.server-form-inner-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.server-form-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.server-photo-preview {
+  width: 128px;
+  height: 128px;
+  border-radius: 128px;
+  border: 5px solid #ebebeb;
+  margin-right: 36px;
+  margin-top: 12px;
+  cursor: pointer;
+  background-color: #7289da;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 56px;
+  line-height: 1.3em;
+}
+
+.server-photo-preview:hover {
+  background-color: #677bc4;
+}
+
+.server-form label {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #86909c;
+  font-weight: bold;
+}
+
+.server-form input {
+  padding: 10px 4px;
+  margin-top: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+  color: initial;
+}
+
+.server-form-footer {
+  background-color: #f6f6f7;
+  padding: 18px 40px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-back-button {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  font-size: 16px;
+  height: 100%;
+  cursor: pointer;
+  color: #99aab5;
+  display: flex;
+  align-items: center;
+}
+
+.form-back-button i {
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.form-back-button:hover {
+  border-bottom-color: #949494;
+}
+
+.server-form-submit {
+  text-transform: capitalize;
+  background-color: #7289da;
+  color: white;
+  padding: 11px 16px;
+  width: 96px;
+}
+
+.server-form-submit:hover {
+  background-color: #677bc4;
+}
+
+.sample-invite {
+  color: #7289da;
+  text-align: center;
+  margin: 35px;
+}
+
+.join-server-form .server-form {
+  padding: 28px 75px 0px;
+}
+
+.join-server-form h1{
+  color: #43b581;
+  margin-bottom: 20px;
+}
+
+.join-server-form .server-form-submit {
+  background-color: #43b581;
+}
+
+.invite-hint {
+  font-size: 11px;
+  color: #99aab5;
+  margin-top: 5px;
+}
+
+.invite-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.add-server-form {
+  background-color: white;
+  width: 540px;
+  height: 420px;
+  box-sizing: border-box;
+  padding: 28px 40px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.add-server-form h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #7289da;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 6px 0px 40px;
+}
+
+.choice-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.add-server-choice {
+  width: 218px;
+  height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.add-server-choice button {
+  padding: 14px 20px;
+  color: white;
+}
+
+.add-server-choice h3 {
+  text-transform: uppercase;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-server-choice p {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #99aab5;
+  text-align: center;
+}
+
+.create-server-box button {
+  background-color: #7289da;
+}
+
+.join-server-box button {
+  background-color: #3ca374;
+}
+
+.create-server-box:hover button {
+  background-color: #677bc4;
+}
+
+.join-server-box:hover button {
+  background-color: #369368
+}
+
+.create-server-box h3 {
+  color: #7289da;
+}
+
+.join-server-box h3 {
+  color: #3ca374;
+}
+
+.add-server-image {
+  flex-grow: 1;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.create-server-image {
+  background-size: 112px;
+} 
+
+.join-server-image {
+  background-size: 178.5px;
+}

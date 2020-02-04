@@ -1,26 +1,29 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :signed_in?
+  helper_method :logged_in?, :current_user
 
-  private
   def current_user
-    @current_user ||= User.find_by_session_token(session[:session_token])
+    @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
-  def signed_in?
+  def logged_in?
     !!current_user
   end
 
-  def sign_in(user)
+  def log_in!(user)
+    session[:session_token] = user.session_token
     @current_user = user
-    session[:session_token] = user.reset_token!
   end
 
-  def sign_out
-    current_user.try(:reset_token!)
+  def log_out!
+    current_user.reset_session_token!
+    ActionCable.server.remote_connections.where(current_user: current_user).disconnect
+    @current_user = nil
     session[:session_token] = nil
   end
 
-  def require_signed_in!
-    redirect_to new_session_url unless signed_in?
+  def ensure_logged_in
+    unless logged_in?
+      render json: { session: ['Invalid session']}, status: 401
+    end
   end
 end

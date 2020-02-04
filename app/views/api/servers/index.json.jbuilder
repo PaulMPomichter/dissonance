@@ -1,1 +1,5 @@
-json.array! @api_servers, partial: "api_servers/api_server", as: :api_server
+@servers.each do |server|
+  json.set! server.id do
+    json.partial! 'server', server: server
+  end
+end

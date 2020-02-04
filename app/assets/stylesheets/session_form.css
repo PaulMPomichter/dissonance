@@ -1,0 +1,181 @@
+.session-background {
+  width: 100%;
+  height: 100%;
+  background: no-repeat center fixed;
+}
+
+.session-form {
+  box-sizing: border-box;
+  width: 480px;
+  padding: 40px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #36393f;
+  color: #72767d;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation-name: bounce-in;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  user-select: none;
+}
+
+.session-form-header {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.session-form h1 {
+  color: white;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.session-form label {
+  color: #8e9297;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.session-form input {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 40px;
+  margin-top: 8px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.1);
+  color: #dcddde;
+  font-size: 16px;
+  font-weight: lighter;
+  width: 100%;
+  border-style: inset;
+}
+
+.session-form input:hover {
+  border-color: #040405;
+}
+
+.session-form input:focus {
+  border: 1px solid #7289da;
+}
+
+.session-form button {
+  color: white;
+  background-color: #7289da;
+  text-transform: capitalize;
+  margin-top: 24px;
+  font-size: 16px;
+  height: 44px;
+  transition: background-color 0.2s;
+}
+
+.session-form button:hover {
+  background-color: #677bc4;
+  transition: background-color 0.2s;
+}
+
+.session-form button:active {
+  background-color: #5b6eae;
+}
+
+.alt-link, .demo-blurb {
+  margin-top: 12px;
+}
+
+label.session-error {
+  color: #f04747;
+}
+
+.session-error input {
+  border: 1px solid rgb(240, 71, 71);
+}
+
+.session-error input:hover {
+  border: 1px solid rgb(240, 71, 71);
+}
+
+.session-error input:focus {
+  outline: none;
+  border: 1px solid rgb(240, 71, 71);
+}
+
+.session-error span {
+  text-transform: none;
+  font-style: italic;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.session-error span::first-letter {
+  text-transform: uppercase;
+}
+
+.demo-blurb {
+  perspective: 100px;
+}
+
+.demo-blurb a {
+  display: inline-block;
+  animation: jiggle 0.2s ease-in-out 2.5s 3;
+}
+
+button.demo-login {
+  /* background-color: #5b6eae;
+  transform: scale(0.96, 0.96);
+  transition: background-color 0.15s, transform 0.15s;
+  transition-delay: 0.85s; */
+  animation: click-button 0.15s ease-out 0.85s;
+}
+
+@keyframes bounce-in {
+  0%   {
+    transform: translateX(-50%) translateY(-90%);
+    width: 540px;
+    opacity: 0%;
+  }
+  60%  {
+    transform: translateX(-50%) translateY(-45%);
+    width: 477px;
+    opacity: 80%;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-51%);
+    width: 480px;
+    opacity: 95%;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 100%;
+  }
+}
+
+@keyframes jiggle {
+  0%, 50%, 100% {
+    transform: none;
+  }
+  25% {
+    transform-origin: center;
+    transform: rotate(-1.5deg);
+  }
+  75% {
+    transform-origin: center;
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes click-button {
+  85% {
+    background-color: #5b6eae;
+    transform: scale(0.97, 0.97) translateY(4px);
+  }
+}

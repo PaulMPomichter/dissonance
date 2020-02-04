@@ -1,0 +1,108 @@
+.chat-options-button {
+  float: right;
+  text-align: right;
+  padding: 2px 4px 2px 6px;
+  font-size: 12px;
+  cursor: pointer;
+  visibility: hidden;
+  color: #b9bbbe;
+  position: relative;
+}
+
+.chat-message:hover .chat-options-button {
+  visibility: visible;
+}
+
+.chat-options-button:hover {
+  color: #dcddde;
+}
+
+.chat-options-button.selected {
+  visibility: visible;
+  color: white;
+}
+
+.message-dropdown {
+  position: absolute;
+  right: -10px;
+  top: 25px;
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #18191c;
+  border-radius: 5px;
+  padding: 2px 0px;
+  z-index: 3;
+  user-select: none;
+}
+
+.message-dropdown.active {
+  animation-name: float-up;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+.chat-message-group:last-of-type .message-dropdown {
+  bottom: 20px;
+  top: initial;
+}
+
+.chat-message-group:last-of-type .message-dropdown.active {
+  animation-name: float-down;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Don't judge me for this */
+.chat-message-group:first-of-type .chat-message:nth-of-type(1) .message-dropdown,
+.chat-message-group:first-of-type .chat-message:nth-of-type(2) .message-dropdown {
+  bottom: initial;
+  top: 25px;
+}
+
+.chat-message-group:first-of-type .chat-message:nth-of-type(1) .message-dropdown.active,
+.chat-message-group:first-of-type .chat-message:nth-of-type(2) .message-dropdown.active {
+  animation-name: float-up;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+.message-dropdown-option {
+  text-align: center;
+  margin: 2px 4px;
+  padding: 2px 8px;
+  color: #b9bbbe;
+  font-size: 12px;
+  text-transform: capitalize;
+  line-height: 1rem;
+}
+
+.message-dropdown-option:hover {
+  color: #dcddde;
+  background-color: rgba(79, 84, 92, 0.161);
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(15%);
+    opacity: 50%;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+
+@keyframes float-down {
+  0% {
+    transform: translateY(-15%);
+    opacity: 50%;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}

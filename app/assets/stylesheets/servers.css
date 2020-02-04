@@ -1,0 +1,113 @@
+.servers-nav {
+  height: 100%;
+  width: 72px;
+  min-width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #202225;
+  overflow: scroll;
+  overflow: -moz-scrollbars-none;
+  user-select: none;
+}
+
+.servers-nav::-webkit-scrollbar { 
+  width: 0 !important; 
+}
+
+.servers-nav-icon {
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  /* position: relative; */
+  background-color: #36393f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.servers-nav-icon:hover, .servers-nav-icon.active {
+  text-decoration: none;
+  border-radius: 16px;
+  background-color: #7289da;
+  transition: border-radius 0.2s, background-color 0.2s;
+}
+
+.servers-nav .tooltip-wrapper {
+  position: absolute;
+  visibility: hidden;
+}
+
+.servers-nav-icon:hover .tooltip-wrapper {
+  visibility: visible;
+  /* display: block; */
+}
+
+.servers-nav .tooltip {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Catamaran', sans-serif;
+  background-color: black;
+  color: white;
+  z-index: 2;
+  border-radius: 4px;
+  padding: 10px 10px;
+  max-width: 160px;
+  width: max-content;
+  word-wrap: none;
+  position: relative;
+  left: 30px;
+  transform: translateX(+50%);
+}
+
+.servers-nav .tooltip:before {
+  content: '';
+  background-color: transparent;
+  height: 0px;
+  width: 0px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid black;
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home-button-container {
+  padding: 5px 0px;
+}
+
+.home-button:hover, .home-button.active {
+  background-color: #7289da;
+  transition: border-radius 0.2s, background-color 0.2s;
+}
+
+.server-separator {
+  width: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 10px;
+}
+
+.server-add-button {
+  color: #43b581;
+  font-size: 38px;
+  font-family: none;
+}
+
+.server-add-button:hover {
+  background-color: #43b581;
+  color: white;
+  transition: border-radius 0.2s, background-color 0.2s;
+}
+
+.server-form .invite-error {
+  color: #f04747;
+}

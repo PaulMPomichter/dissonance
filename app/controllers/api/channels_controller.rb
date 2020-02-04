@@ -1,74 +1,61 @@
 class Api::ChannelsController < ApplicationController
-  before_action :set_api_channel, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
-  # GET /api/channels
-  # GET /api/channels.json
-  def index
-    @api_channels = Api::Channel.all
-  end
-
-  # GET /api/channels/1
-  # GET /api/channels/1.json
   def show
+    @channel = Channel.find_by(id: params[:id])
+    
+    if @channel
+      render :show
+    else
+      render json: ['Channel not found'], status: 404
+    end
   end
 
-  # GET /api/channels/new
-  def new
-    @api_channel = Api::Channel.new
-  end
-
-  # GET /api/channels/1/edit
-  def edit
-  end
-
-  # POST /api/channels
-  # POST /api/channels.json
   def create
-    @api_channel = Api::Channel.new(api_channel_params)
+    server = current_user.owned_servers.find_by(id: params[:server_id])
 
-    respond_to do |format|
-      if @api_channel.save
-        format.html { redirect_to @api_channel, notice: 'Channel was successfully created.' }
-        format.json { render :show, status: :created, location: @api_channel }
+    if server
+      @channel = Channel.new(channel_params)
+      @channel.server = server
+
+      if @channel.save
+        render :show
       else
-        format.html { render :new }
-        format.json { render json: @api_channel.errors, status: :unprocessable_entity }
+        render json: @channel.errors.full_messages
       end
+    else
+      render json: ['Server not found'], status: 404
     end
   end
 
-  # PATCH/PUT /api/channels/1
-  # PATCH/PUT /api/channels/1.json
   def update
-    respond_to do |format|
-      if @api_channel.update(api_channel_params)
-        format.html { redirect_to @api_channel, notice: 'Channel was successfully updated.' }
-        format.json { render :show, status: :ok, location: @api_channel }
+    @channel = current_user.owned_channels.find_by(id: params[:id])
+
+    if @channel
+      if @channel.update(channel_params)
+        render :show
       else
-        format.html { render :edit }
-        format.json { render json: @api_channel.errors, status: :unprocessable_entity }
+        render json: @channel.errors.full_messages, status: 422
       end
+    else
+      render json: ['Channel not found'], status: 404
     end
   end
 
-  # DELETE /api/channels/1
-  # DELETE /api/channels/1.json
   def destroy
-    @api_channel.destroy
-    respond_to do |format|
-      format.html { redirect_to api_channels_url, notice: 'Channel was successfully destroyed.' }
-      format.json { head :no_content }
+    @channel = current_user.owned_channels.find_by(id: params[:id])
+
+    if @channel
+      @channel.destroy
+      render :show
+    else
+      render json: ['Channel not found'], status: 404
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_channel
-      @api_channel = Api::Channel.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def api_channel_params
-      params.fetch(:api_channel, {})
-    end
+  def channel_params
+    params.require(:channel).permit(:name, :topic)
+  end
 end

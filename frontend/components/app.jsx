@@ -1,17 +1,27 @@
-import React from 'react';
-import WelcomeBar from './nav_bar/welcome_bar_container';
-import NavBarContainer from './nav_bar/nav_bar_container';
-import SignupContainer from './session/signup_container';
-import LoginContainer from './session/login_container';
-import Home from './home/home';
+import React from 'react'
 import { Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import SplashContainer from './splash/splash_container';
+import LoginFormContainer from './session/login_form_container';
+import RegistrationFormContainer from './session/registration_form_container';
+import ContentContainer from './content/content_container';
+import ServerIndexContainer from './servers/server_index_container';
+import ModalContainer from './modal/modal_container';
 
-export default () => (
-  <div>
-    <Route path="/" component={NavBarContainer}/>
-    <Route exact path="/" component={Home} />
-    <AuthRoute path="/signup" component={SignupContainer} />
-    <AuthRoute path="/login" component={LoginContainer} />
-  </div>
-);
+const App = () => {
+  return (
+    <>
+      <Route path="/channels/:serverId/:channelId?" component={ModalContainer} />
+
+      <Route exact path="/" component={SplashContainer} />
+
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/register" component={RegistrationFormContainer} />
+
+      <ProtectedRoute path="/channels" component={ServerIndexContainer} />
+      <ProtectedRoute path="/channels/:serverId" component={ContentContainer} />
+    </>
+  )
+}
+
+export default App;
